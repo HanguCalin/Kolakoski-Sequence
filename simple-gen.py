@@ -16,10 +16,12 @@ def generate_kolakoski(n):
 
     return arr
 
-n = int(input())
-sequence = generate_kolakoski(n)
+if __name__ == "__main__":
+    n = int(input())
+    kolakoski_sequence = generate_kolakoski(n)
 
-with open("output.txt", "w") as file:
-    line_length = 50
-    for i in range(0, len(sequence), line_length):
-        file.write(" ".join(map(str, sequence[i:i + line_length])) + "\n")
+    with open("output.txt", "w") as file:
+        line_length = 100
+        for i in range(0, len(kolakoski_sequence), line_length):
+            file.write(" ".join(map(str, kolakoski_sequence[i:i + line_length])) + "\n")
+
