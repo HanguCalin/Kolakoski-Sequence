@@ -1,20 +1,22 @@
 def generate_kolakoski(n):
-    arr = [0] * n
-    arr[0], arr[1], arr[2] = 1, 2, 2
+    if n <= 0:
+        return []
+    if n == 1:
+        return [1]
+    if n == 2:
+        return [1, 2]
 
-    i, length, curr = 2, 3, 1
+    arr = [1, 2, 2]
+    i = 2
+    current_value = 1
 
-    while length < n:
+    while len(arr) < n:
         run_length = arr[i]
+        arr.extend([current_value] * run_length)
+        current_value = 3 - current_value
         i += 1
-        curr = 3 - curr
 
-        for _ in range(run_length):
-            if length < n:
-                arr[length] = curr
-                length += 1
-
-    return arr
+    return arr[:n]
 
 if __name__ == "__main__":
     n = int(input())
